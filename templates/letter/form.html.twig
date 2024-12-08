@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Send letter{% endblock %}
+
+{% block body %}
+    <div class="flex justify-center mt-5">
+        <div class="bg-base-100 p-7 shadow-xl rounded-lg">
+            <h1 class="text-xl font-semibold">Send letter</h1>
+            {{ form_start(letterForm) }}
+
+            <label class="input input-bordered flex items-center gap-2 shadow mt-5">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    class="h-4 w-4 opacity-70">
+                    <path
+                        d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
+                </svg>
+                {{ form_widget(letterForm.name, {'attr': {'class': 'grow'}}) }}
+            </label>
+            <div class="text-error text-sm">{{ form_errors(letterForm.name) }}</div>
+
+            <label class="input input-bordered flex items-center gap-2 mt-3 shadow">
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                    class="h-4 w-4 opacity-70">
+                    <path
+                        d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
+                    <path
+                        d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
+                </svg>
+                {{ form_widget(letterForm.email, {'attr': {'class': 'grow'}}) }}
+            </label>
+            <div class="text-error text-sm">{{ form_errors(letterForm.email) }}</div>
+
+            <label class="input input-bordered flex items-center gap-2 mt-3 shadow">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" class="h-4 w-4 opacity-70"><!--!Font Awesome Free 6.7.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M528 160l0 256c0 8.8-7.2 16-16 16l-192 0c0-44.2-35.8-80-80-80l-64 0c-44.2 0-80 35.8-80 80l-32 0c-8.8 0-16-7.2-16-16l0-256 480 0zM64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l448 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM272 256a64 64 0 1 0 -128 0 64 64 0 1 0 128 0zm104-48c-13.3 0-24 10.7-24 24s10.7 24 24 24l80 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-80 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l80 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-80 0z"/></svg>
+                {{ form_widget(letterForm.pesel, {'attr': {'class': 'grow'}}) }}
+            </label>
+            <div class="text-error text-sm">{{ form_errors(letterForm.pesel) }}</div>
+
+            <label class="flex items-center gap-2 mt-3 shadow">
+                {{ form_widget(letterForm.message, {'attr': {'class': 'textarea textarea-bordered w-full'}}) }}
+            </label>
+
+            <button class="btn btn-primary mt-5">Send</button>
+            {{ form_end(letterForm) }}
+        </div>
+    </div>
+{% endblock %}

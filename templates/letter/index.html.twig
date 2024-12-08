@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello LetterController!{% endblock %}
+
+{% block body %}
+<div>
+    {% if letters is empty %}
+        <p class="text-xl font-semibold">Smartheads has not received the letters yet. You can send them <a href="{{ path('app_send_letter') }}" class="text-primary">here</a>.</p>
+    {% else %}
+        <div class="overflow-x-auto bg-base-100 p-5 rounded-lg">
+            <table class="table table-zebra">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Pesel</th>
+                    <th>Message</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% for letter in letters %}
+                    {% include './letter/_item.html.twig' with {'letter': letter} %}
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
